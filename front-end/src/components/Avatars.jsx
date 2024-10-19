@@ -5,10 +5,10 @@ import Stack from '@mui/material/Stack';
 export default function ImageAvatars() {
   return (
     <Stack direction="row" spacing={2}>
-      <Avatar alt="Elijah" src="/static/images/avatar/1.jpg" />
-      <Avatar alt="JD" src="/static/images/avatar/2.jpg" />
-      <Avatar alt="Mohamed" src="/static/images/avatar/3.jpg" />
-      <Avatar alt ="Nate" src="" />
+      <Avatar alt="Elijah" src="/Users/mohagany/Documents/GitHub/HackOhio12/front-end/src/Avatars/My-Boy-Elijah.jpeg" />
+      <Avatar alt="JD" src="/Users/mohagany/Documents/GitHub/HackOhio12/front-end/src/Avatars/My-Boy-JD.jpeg" />
+      <Avatar alt="Mohamed" src="/Users/mohagany/Documents/GitHub/HackOhio12/front-end/src/Avatars/Meeeeeee.jpeg" />
+      <Avatar alt ="Nate" src="/Users/mohagany/Documents/GitHub/HackOhio12/front-end/src/Avatars/IMG_0949.JPG" />
     </Stack>
   );
 }
