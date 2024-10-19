@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar"
 // import Button from "./components/Button"
 // import Accordion from "./components/Accordion"
 // import Linear from "./components/Linear"
+import GraphBarChart from "./components/GraphBarChart"
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <div>
       <Navbar />
+      {/* <GraphBarChart /> */}
       {/* <Button />
       <Accordion />
       <Linear /> */}
