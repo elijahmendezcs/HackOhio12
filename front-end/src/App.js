@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar"
 import Button from "./components/Button"
+import Accordion from "./components/Accordion"
+import Linear from "./components/Linear"
 
 
 function App() {
@@ -9,9 +11,9 @@ function App() {
     <div className="App">
       <div>
       <Navbar />
-      
-
-      {/* <Button /> */}
+      <Button />
+      <Accordion />
+      <Linear />
       </div>
     </div>
   )
