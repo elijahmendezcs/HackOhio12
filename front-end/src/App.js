@@ -9,20 +9,22 @@ function App() {
   return (
     <Router>
       <div className="App h-screen">
-        <Routes>
-          <Route path="/" element={
-            <div className="flex flex-col items-center justify-center pt-20">
-              <Navbar className="w-full fixed top-0 left-0 z-10"/>
-              <img src={busImage} alt="Bus Image" className="mx-auto max-w-3xl h-auto"/>
-              <h1 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-500 animate-text">
-                Where2Go?
-              </h1>
-              <Button>Get Started</Button>
-            </div>
-          } />
-          <Route path="/home" element={<Home />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <Navbar className="w-full fixed top-0 left-0 z-10"/> 
+        <div className="pt-16">
+          <Routes>
+            <Route path="/" element={
+              <div className="flex flex-col items-center justify-center space-y-8 mt-4"> 
+                <img src={busImage} alt="Bus Image" className="mx-auto max-w-3xl h-auto"/>
+                <h1 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-500 animate-text">
+                  Where2Go?
+                </h1>
+                <Button>Get Started</Button>
+              </div>
+            } />
+            <Route path="/home" element={<Home />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );
