@@ -4,7 +4,6 @@ import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
 
 export default function AccordionUsage() {
   return (
@@ -19,6 +18,7 @@ export default function AccordionUsage() {
         </AccordionSummary>
         <AccordionDetails>Walk to the bus stop.</AccordionDetails>
       </Accordion>
+
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -29,7 +29,8 @@ export default function AccordionUsage() {
         </AccordionSummary>
         <AccordionDetails>Get on the bus.</AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3-content"
@@ -39,8 +40,11 @@ export default function AccordionUsage() {
         </AccordionSummary>
         <AccordionDetails>Get off of the bus.</AccordionDetails>
         <AccordionActions>
-          <Button>Cancel</Button>
-          <Button>Agree</Button>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3-content"
+            id="panel3-header"
+          ></AccordionSummary>
         </AccordionActions>
       </Accordion>
     </div>

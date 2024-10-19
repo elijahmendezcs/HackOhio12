@@ -1,10 +1,11 @@
 import React from 'react';
+import Accordion from '../components/StepsAccordion';
 
 function Home() {
   return (
-    <div>
-      <h1>This is the Home Page</h1>
-      <p>Welcome to the home page!</p>
+    <div className="p-6">
+      <h1 className="text-4xl font-bold text-gray-800 mb-4">How It Works:</h1>
+      <Accordion />
     </div>
   );
 }
