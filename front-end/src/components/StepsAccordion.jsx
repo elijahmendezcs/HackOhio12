@@ -8,7 +8,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 export default function AccordionUsage() {
   return (
     <div>
-      <Accordion defaultExpanded>
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -21,7 +21,7 @@ export default function AccordionUsage() {
         </AccordionDetails>
       </Accordion>
 
-      <Accordion defaultExpanded>
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -34,7 +34,7 @@ export default function AccordionUsage() {
         </AccordionDetails>
       </Accordion>
 
-      <Accordion defaultExpanded>
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3-content"
@@ -50,7 +50,7 @@ export default function AccordionUsage() {
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel3-content"
             id="panel3-header"
-          ></AccordionSummary>
+          />
         </AccordionActions>
       </Accordion>
     </div>
