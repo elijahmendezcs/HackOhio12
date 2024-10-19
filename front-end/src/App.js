@@ -1,24 +1,33 @@
 import React from "react";
-import Navbar from "./components/Navbar"
-// import Button from "./components/Button"
-// import Accordion from "./components/Accordion"
-// import Linear from "./components/Linear"
-import GraphBarChart from "./components/GraphBarChart"
-
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Button from "./components/Button"; // Make sure this is the correct import
+import Home from "./pages/Home";
+import busImage from "./images/busImage.jpeg";
 
 function App() {
-
   return (
-    <div className="App">
-      <div>
-      <Navbar />
-      {/* <GraphBarChart /> */}
-      {/* <Button />
-      <Accordion />
-      <Linear /> */}
+    <Router>
+      <div className="App h-screen">
+        <Navbar className="w-full fixed top-0 left-0 z-10"/> 
+        <div className="pt-16">
+          <Routes>
+            <Route path="/" element={
+              <div className="flex flex-col items-center justify-center space-y-8 mt-4"> 
+                <img src={busImage} alt="Bus Image" className="mx-auto max-w-3xl h-auto"/>
+                <h1 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-500 animate-text">
+                  Where2Go?
+                </h1>
+                <Button>Get Started</Button>
+              </div>
+            } />
+            <Route path="/home" element={<Home />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
       </div>
-    </div>
-  )
+    </Router>
+  );
 }
 
 export default App;
