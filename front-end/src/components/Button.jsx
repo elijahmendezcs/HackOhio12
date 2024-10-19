@@ -4,10 +4,10 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 
 export default function ContainedButton() {
-  const navigate = useNavigate();  // Hook to programmatically navigate
+  const navigate = useNavigate();  
 
   const handleClick = () => {
-    navigate('/home');  // Navigate to '/home' when the button is clicked
+    navigate('/home');  
   };
 
   return (

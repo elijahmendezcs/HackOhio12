@@ -1,6 +1,7 @@
 import React from "react";
 
 const About = () => {
+
   return (
     <div>
       About
@@ -8,6 +9,9 @@ const About = () => {
       <p>We did this and this</p>
     </div>
   );
+
+  return <div>this is the about page</div>;
+
 };
 
 export default About;
