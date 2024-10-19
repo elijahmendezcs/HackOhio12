@@ -9,8 +9,7 @@ function App() {
     <div className="App">
       <div>
       <Navbar />
-
-      {/* <Button /> */}
+      <Button />
       </div>
     </div>
   )
