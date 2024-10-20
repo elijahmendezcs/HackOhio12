@@ -25,7 +25,7 @@ function App() {
             <Route
               path="/"
               element={
-                <div className="flex flex-col items-center justify-center space-y-8 mt-10 px-4">
+                <div className="flex flex-col items-center justify-center space-y-8 mt--10 px-4">
                   <img
                     src={busImage}
                     alt="Bus Image"
@@ -35,34 +35,22 @@ function App() {
                     Where2Go?
                   </h1>
 
-                  <div className="mt-8 text-center space-y-4">
-                    <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-                      Welcome to the most efficient transit solution for Ohio State University. 
-                      Our app guides you step by step to find the best routes around campus. 
+                  {/* Overview Section */}
+                  <div className="mt-8 text-center space-y-4 max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-700">
+                      Welcome to Where2Go, your ultimate guide for navigating
+                      the Ohio State University campus efficiently. Enter your
+                      starting location and destination, and we'll provide you
+                      with the best combination of walking and bus routes. Using
+                      real-time CABS data and the Google Maps API, our app
+                      ensures that you arrive at your destination in the most
+                      efficient way possible. Visualize your journey with ease
+                      and follow the optimal path that minimizes walking while
+                      getting you to your destination on time.
                     </p>
-                    <div className="flex flex-col space-y-6">
-                      <div className="bg-white shadow-lg rounded-lg p-6 max-w-2xl mx-auto">
-                        <h2 className="text-2xl font-semibold text-gray-800 mb-2">Step 1: Enter Your Locations</h2>
-                        <p className="text-gray-600">
-                          Start by entering your current location and your destination within the Ohio State University campus.
-                        </p>
-                      </div>
-                      <div className="bg-white shadow-lg rounded-lg p-6 max-w-2xl mx-auto">
-                        <h2 className="text-2xl font-semibold text-gray-800 mb-2">Step 2: Find the Best Route</h2>
-                        <p className="text-gray-600">
-                          The app calls on the Google Maps API and real-time CABS data to find the most efficient mix of bus routes and walking paths.
-                        </p>
-                      </div>
-                      <div className="bg-white shadow-lg rounded-lg p-6 max-w-2xl mx-auto">
-                        <h2 className="text-2xl font-semibold text-gray-800 mb-2">Step 3: Visualize Your Journey</h2>
-                        <p className="text-gray-600">
-                          We provide a clear visual path for your journey, so you can easily follow the route with minimal walking and time spent.
-                        </p>
-                      </div>
-                    </div>
                   </div>
 
-                  <Button className="bg-scarlet-500 text-white hover:bg-gray-600 mt-8">
+                  <Button className="bg-scarlet-500 text-white hover:bg-gray-600 mb-8">
                     Get Started
                   </Button>
                 </div>

@@ -16,6 +16,7 @@ export default function ContainedButton() {
         variant="contained"
         onClick={handleClick}
         sx={{
+          marginBottom: '24px',
           backgroundColor: '#BB0000', // Scarlet color
           color: '#fff', // White text
           '&:hover': {
