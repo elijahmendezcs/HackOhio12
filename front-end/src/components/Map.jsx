@@ -125,7 +125,7 @@ const Map = () => {
           {/* Google Map */}
           <GoogleMap
             mapContainerStyle={mapContainerStyle}
-            center={fromLocation}
+            center={center}
             zoom={15}
             onLoad={(map) => (mapRef.current = map)}
           >
