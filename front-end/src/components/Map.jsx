@@ -128,7 +128,7 @@ const Map = () => {
     <Card style={{ marginTop: 20, boxShadow: "0 4px 8px rgba(0,0,0,0.2)" }}>
       <CardContent>
         <Typography variant="h5" gutterBottom>
-          Google Maps with Autocomplete
+          Choose your destinations!
         </Typography>
 
         <LoadScript
@@ -202,7 +202,13 @@ const Map = () => {
         >
           <Button
             variant="contained"
-            color="primary"
+            sx={{
+              backgroundColor: "#FF2400", // Scarlet color
+              color: "gray",
+              "&:hover": {
+                backgroundColor: "#b80000", // Darker scarlet on hover
+              },
+            }}
             onClick={handleRouteRequest}
           >
             Get Route

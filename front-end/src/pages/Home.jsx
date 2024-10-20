@@ -14,33 +14,6 @@ function Home() {
         <Accordion />
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "16px",
-          padding: "20px",
-        }}
-      >
-        <Box
-          component="form"
-          sx={{ "& > :not(style)": { m: 1, width: "25ch" } }}
-          noValidate
-          autoComplete="off"
-          style={{ margin: 0 }}
-        >
-          <TextField
-            id="filled-basic"
-            label="Enter your location"
-            variant="filled"
-          />
-        </Box>
-        <Button variant="contained" size="large">
-          Submit
-        </Button>
-      </div>
-
       <div className="text-center mt-12">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">
           Find Your Nearest Bus Stop:
