@@ -22,9 +22,10 @@ function App() {
               element={
                 <div className="flex flex-col items-center justify-center space-y-8 mt-4">
                   <img src={busImage} alt="Bus Image" className="mx-auto max-w-3xl h-auto" />
-                  <h1 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-scarlet-500 to-gray-500 animate-text">
-                    Where2Go?
-                  </h1>
+                  <h1 className="text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-gray-500 animate-text">
+  Where2Go?
+</h1>
+
                   <Button className="bg-scarlet-500 text-white hover:bg-gray-600">Get Started</Button>
                 </div>
               }
