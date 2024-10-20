@@ -12,7 +12,17 @@ export default function ContainedButton() {
 
   return (
     <Stack spacing={2} direction="row">
-      <Button variant="contained" onClick={handleClick}>
+      <Button
+        variant="contained"
+        onClick={handleClick}
+        sx={{
+          backgroundColor: '#BB0000', // Scarlet color
+          color: '#fff', // White text
+          '&:hover': {
+            backgroundColor: '#4A4A4A', // Gray color for hover
+          },
+        }}
+      >
         Get Started
       </Button>
     </Stack>

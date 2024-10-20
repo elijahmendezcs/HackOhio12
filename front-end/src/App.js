@@ -9,9 +9,9 @@ import busImage from "./images/busImage.jpeg";
 function App() {
   return (
     <Router>
-      <div className="App h-screen">
+      <div className="App h-screen bg-gray-100">
         {/* Navbar Component */}
-        <Navbar className="w-full fixed top-0 left-0 z-10" /> 
+        <Navbar className="w-full fixed top-0 left-0 z-10 bg-gray-700" /> 
 
         {/* Main Content Section */}
         <div className="pt-16">
@@ -22,10 +22,10 @@ function App() {
               element={
                 <div className="flex flex-col items-center justify-center space-y-8 mt-4">
                   <img src={busImage} alt="Bus Image" className="mx-auto max-w-3xl h-auto" />
-                  <h1 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-500 animate-text">
+                  <h1 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-scarlet-500 to-gray-500 animate-text">
                     Where2Go?
                   </h1>
-                  <Button>Get Started</Button>
+                  <Button className="bg-scarlet-500 text-white hover:bg-gray-600">Get Started</Button>
                 </div>
               }
             />
