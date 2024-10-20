@@ -6,6 +6,9 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import DataChart from "../components/DataChart";
 import { useState } from "react";
+import StepsAccordion from "../components/InstructAccordion";
+
+
 function Home() {
   return (
     <div className="p-6 space-y-12">
