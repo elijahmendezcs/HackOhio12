@@ -100,7 +100,6 @@ function App() {
               path="/"
               element={
                 <div className="flex flex-col items-center justify-center space-y-8">
-                  
                   {/* Centered Flip Box with margin */}
                   <div className="flex justify-center items-center mb-8">
                     <FlipBox
