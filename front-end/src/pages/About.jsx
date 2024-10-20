@@ -6,11 +6,20 @@ import JDAvatar from "../Avatars/My-Boy-JD.jpeg";
 import NateAvatar from "../Avatars/My-Boy-Nate.jpg";
 import MoAvatar from "../Avatars/Meeeeeee.jpeg";
 import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 
 const About = () => {
-  // Set the size of the avatars to the largest
+  // Set the size of the avatars
   const avatarSize = 150;
+  const paperSize = {
+    width: "300px",
+    height: "400px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "16px",
+    boxSizing: "border-box",
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
@@ -28,8 +37,11 @@ const About = () => {
         </p>
 
         <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
-          What We Used:
+        What We Used:
         </h1>
+        <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
+          <Link href="https://github.com/elijahmendezcs/HackOhio12">CodeBase</Link></h1>
+        
         <p className="text-lg text-gray-800 leading-relaxed">
           Programming Languages: JavaScript, Java, HTML, CSS
         </p>
@@ -42,94 +54,77 @@ const About = () => {
         </p>
       </div>
 
-      {/* Grid for the avatars */}
-      <Grid container spacing={4} className="mt-6">
+      {/* Flexbox container for avatars with very little space */}
+      <div className="flex flex-wrap justify-center" style={{ gap: "8px" }}>
         {/* Elijah */}
-        <Grid item xs={12} sm={6}>
-          <Paper elevation={3} className="flex flex-col items-center p-4">
-            <Avatar
-              alt="Elijah"
-              src={ElijahAvatar}
-              sx={{ width: avatarSize, height: avatarSize }}
-            />
-            <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
-              Elijah Mendez
-            </h1>
-            <p className="mt-2 text-center italic">
-              "Demonstrate Greatness." - Elijah
-            </p>
-            <Link href="https://www.linkedin.com/in/elijahmendezcs/">
-              LinkedIn
-            </Link>
-            <Link href="https://github.com/elijahmendezcs">GitHub</Link>
-          </Paper>
-        </Grid>
+        <Paper elevation={3} style={paperSize}>
+          <Avatar
+            alt="Elijah"
+            src={ElijahAvatar}
+            sx={{ width: avatarSize, height: avatarSize }}
+          />
+          <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
+            Elijah Mendez
+          </h1>
+          <p className="mt-2 text-center italic">"Demonstrate Greatness." - Elijah</p>
+          <Link href="https://www.linkedin.com/in/elijahmendezcs/">LinkedIn</Link>
+          <Link href="https://github.com/elijahmendezcs">GitHub</Link>
+        </Paper>
 
         {/* Mohamed */}
-        <Grid item xs={12} sm={6}>
-          <Paper elevation={3} className="flex flex-col items-center p-4">
-            <Avatar
-              alt="Mo"
-              src={MoAvatar}
-              sx={{ width: avatarSize, height: avatarSize }}
-            />
-            <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
-              Mohamed Chakrowf
-            </h1>
-            <p className="mt-2 text-center italic">
-              "You miss 100% of the shots you do not take." - Mohamed
-            </p>
-            <Link href="https://www.linkedin.com/in/mohamed-chakrowf-2944a6228/">
-              LinkedIn
-            </Link>
-            <Link href="https://github.com/mchakrowf">GitHub</Link>
-          </Paper>
-        </Grid>
+        <Paper elevation={3} style={paperSize}>
+          <Avatar
+            alt="Mo"
+            src={MoAvatar}
+            sx={{ width: avatarSize, height: avatarSize }}
+          />
+          <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
+            Mohamed Chakrowf
+          </h1>
+          <p className="mt-2 text-center italic">
+            "You miss 100% of the shots you don't take." - Mohamed
+          </p>
+          <Link href="https://www.linkedin.com/in/mohamed-chakrowf-2944a6228/">LinkedIn</Link>
+          <Link href="https://github.com/mchakrowf">GitHub</Link>
+        </Paper>
 
         {/* JD */}
-        <Grid item xs={12} sm={6}>
-          <Paper elevation={3} className="flex flex-col items-center p-4">
-            <Avatar
-              alt="JD"
-              src={JDAvatar}
-              sx={{ width: avatarSize, height: avatarSize }}
-            />
-            <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
-              JD Ojeda
-            </h1>
-            <p className="mt-2 text-center italic">
-              "Surreal feeling building something amazing." - JD
-            </p>
-            <Link href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAADkQRdcBZXBjjKLM2OV1D1jUIIWocXF9Rnk&keywords=JD%20Ojeda&origin=ENTITY_SEARCH_HOME_HISTORY&sid=j%3A%40">
-              LinkedIn
-            </Link>
-            <Link href="https://github.com/ojedaJD">GitHub</Link>
-          </Paper>
-        </Grid>
+        <Paper elevation={3} style={paperSize}>
+          <Avatar
+            alt="JD"
+            src={JDAvatar}
+            sx={{ width: avatarSize, height: avatarSize }}
+          />
+          <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
+            JD Ojeda
+          </h1>
+          <p className="mt-2 text-center italic">
+            "Surreal feeling building something amazing." - JD
+          </p>
+          <Link href="https://www.linkedin.com/in/jd-ojeda">LinkedIn</Link>
+          <Link href="https://github.com/ojedaJD">GitHub</Link>
+        </Paper>
 
         {/* Nate */}
-        <Grid item xs={12} sm={6}>
-          <Paper elevation={3} className="flex flex-col items-center p-4">
-            <Avatar
-              alt="Nate"
-              src={NateAvatar}
-              sx={{ width: avatarSize, height: avatarSize }}
-            />
-            <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
-              Nate Aninweze
-            </h1>
-            <p className="mt-2 text-center italic">
-              "You're damned if you do, and you're damned if you don't" - Nate
-            </p>
-            <Link href="https://www.linkedin.com/in/mohamed-chakrowf-2944a6228/">
-              LinkedIn
-            </Link>
-            <Link href="https://github.com/mchakrowf">GitHub</Link>
-          </Paper>
-        </Grid>
-      </Grid>
+        <Paper elevation={3} style={paperSize}>
+          <Avatar
+            alt="Nate"
+            src={NateAvatar}
+            sx={{ width: avatarSize, height: avatarSize }}
+          />
+          <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
+            Nate Aninweze
+          </h1>
+          <p className="mt-2 text-center italic">
+            "You're damned if you do, and you're damned if you don't." - Nate
+          </p>
+          <Link href="https://www.linkedin.com/in/nate-aninweze">LinkedIn</Link>
+          <Link href="https://github.com/nateaninweze">GitHub</Link>
+        </Paper>
+      </div>
     </div>
   );
 };
 
 export default About;
+
