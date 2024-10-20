@@ -3,7 +3,8 @@ import React from "react";
 // Import images directly from the src folder
 import ElijahAvatar from '../Avatars/My-Boy-Elijah.jpeg';
 import JDAvatar from '../Avatars/My-Boy-JD.jpeg';
-import NateAvatar from '../Avatars/IMG_0949.JPG';
+import NateAvatar from '../Avatars/My-Boy-Nate.jpg';
+import MoAvatar from '../Avatars/Meeeeeee';
 
 const About = () => {
   return (
@@ -21,9 +22,10 @@ const About = () => {
         </p>
 
         {/* Use the imported images for the Avatars */}
-        <Avatar alt="Elijah" src={ElijahAvatar} />
-        <Avatar alt="JD" src={JDAvatar} />
-        <Avatar alt="Nate" src={NateAvatar} />
+        <Avatar alt="Elijah" src={ElijahAvatar} sx={{ width: 100, height: 100 }} />
+        <Avatar alt="Mo" src={MoAvatar} sx={{ width: 100, height: 100 }} />
+        <Avatar alt="JD" src={JDAvatar} sx={{ width: 100, height: 100 }} />
+        <Avatar alt="Nate" src={NateAvatar} sx={{ width: 100, height: 100 }} />
       </div>
     </div>
   );
