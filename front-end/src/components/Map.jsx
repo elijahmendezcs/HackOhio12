@@ -187,11 +187,31 @@ const Map = () => {
           <Button
             variant="outlined"
             onClick={handleZoomIn}
-            sx={{ marginRight: "8px" }}
+            sx={{
+              marginRight: "8px",
+              color: "#BB0000", // Text color (scarlet)
+              borderColor: "#BB0000", // Border color (scarlet)
+              "&:hover": {
+                backgroundColor: "#ffcccc", // Light scarlet on hover
+                borderColor: "#BB0000", // Keeps border scarlet on hover
+              },
+            }}
           >
             <AddIcon /> Zoom In
           </Button>
-          <Button variant="outlined" onClick={handleZoomOut}>
+
+          <Button
+            variant="outlined"
+            onClick={handleZoomOut}
+            sx={{
+              color: "#BB0000", // Text color (gray)
+              borderColor: "#BB0000", // Border color (gray)
+              "&:hover": {
+                backgroundColor: "#ffcccc", // Light gray on hover
+                borderColor: "#808080", // Keeps border gray on hover
+              },
+            }}
+          >
             <RemoveIcon /> Zoom Out
           </Button>
         </Box>
@@ -203,10 +223,10 @@ const Map = () => {
           <Button
             variant="contained"
             sx={{
-              backgroundColor: '#BB0000', // Scarlet color
-              color: '#fff', // White text
-              '&:hover': {
-                backgroundColor: '#4A4A4A', // Gray color for hover
+              backgroundColor: "#BB0000", // Scarlet color
+              color: "#fff", // White text
+              "&:hover": {
+                backgroundColor: "#4A4A4A", // Gray color for hover
               },
             }}
             onClick={handleRouteRequest}
