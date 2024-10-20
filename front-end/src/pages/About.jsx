@@ -22,9 +22,12 @@ const About = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
-      <div className="max-w-3xl p-8 bg-blue-50 rounded-lg shadow-lg mb-6">
-        <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
-          About
+      <div className="max-w-3xl p-8 bg-white rounded-lg shadow-lg mb-6">
+        <h1
+          className="text-4xl font-bold text-center mb-6"
+          style={{ color: "#BB0000" }} // Changed color to #BB0000
+        >
+          About:
         </h1>
         <p className="text-lg text-gray-800 leading-relaxed">
           We are four Ohio State University engineering students on a mission to
@@ -35,12 +38,13 @@ const About = () => {
           its ability to find any building.
         </p>
 
-        <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
-        What We Used:
+        <h1
+          className="text-4xl font-bold text-center mb-6"
+          style={{ color: "#BB0000" }} // Changed color to #BB0000
+        >
+          What We Used:
         </h1>
-        <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
-          <Link href="https://github.com/elijahmendezcs/HackOhio12">CodeBase</Link></h1>
-        
+
         <p className="text-lg text-gray-800 leading-relaxed">
           Programming Languages: JavaScript, Java, HTML, CSS
         </p>
@@ -48,9 +52,20 @@ const About = () => {
           Technologies: React.js, Node.js, SpringBoot, PostgreSQL, Axios, Git,
           Web Scraping Techniques, Postman, Charles
         </p>
-        <p className="text-lg text-gray-800 leading-relaxed">
+        <p className="text-lg text-gray-800 leading-relaxed mb-6">
           Libraries: MaterialUI, Charter, Google Maps API
         </p>
+        <h1
+          className="text-3xl font-bold text-center mb-6"
+          style={{ color: "#BB0000" }} // Changed color to #BB0000
+        >
+          <Link
+            href="https://github.com/elijahmendezcs/HackOhio12"
+            style={{ color: "#BB0000", textDecoration: "none" }} // Removed underline
+          >
+            Click Me For Source Code
+          </Link>
+        </h1>
       </div>
 
       {/* Flexbox container for avatars with very little space */}
@@ -62,11 +77,18 @@ const About = () => {
             src={ElijahAvatar}
             sx={{ width: avatarSize, height: avatarSize }}
           />
-          <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
+          <h1
+            className="text-4xl font-bold text-center mb-6 underline"
+            style={{ color: "#BB0000" }} // Changed color to #BB0000
+          >
             Elijah Mendez
           </h1>
-          <p className="mt-2 text-center italic">"Demonstrate Greatness." - Elijah</p>
-          <Link href="https://www.linkedin.com/in/elijahmendezcs/">LinkedIn</Link>
+          <p className="mt-2 text-center italic">
+            "Demonstrate Greatness." - Elijah
+          </p>
+          <Link href="https://www.linkedin.com/in/elijahmendezcs/">
+            LinkedIn
+          </Link>
           <Link href="https://github.com/elijahmendezcs">GitHub</Link>
         </Paper>
 
@@ -77,13 +99,18 @@ const About = () => {
             src={MoAvatar}
             sx={{ width: avatarSize, height: avatarSize }}
           />
-          <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
+          <h1
+            className="text-4xl font-bold text-center mb-6 underline"
+            style={{ color: "#BB0000" }} // Changed color to #BB0000
+          >
             Mohamed Chakrowf
           </h1>
           <p className="mt-2 text-center italic">
             "You miss 100% of the shots you don't take." - Mohamed
           </p>
-          <Link href="https://www.linkedin.com/in/mohamed-chakrowf-2944a6228/">LinkedIn</Link>
+          <Link href="https://www.linkedin.com/in/mohamed-chakrowf-2944a6228/">
+            LinkedIn
+          </Link>
           <Link href="https://github.com/mchakrowf">GitHub</Link>
         </Paper>
 
@@ -94,13 +121,16 @@ const About = () => {
             src={JDAvatar}
             sx={{ width: avatarSize, height: avatarSize }}
           />
-          <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
+          <h1
+            className="text-4xl font-bold text-center mb-6 underline"
+            style={{ color: "#BB0000" }} // Changed color to #BB0000
+          >
             JD Ojeda
           </h1>
           <p className="mt-2 text-center italic">
             "Surreal feeling building something amazing." - JD
           </p>
-          <Link href="https://www.linkedin.com/in/jd-ojeda">LinkedIn</Link>
+          <Link href="https://www.linkedin.com/in/jd-ojeda-cse">LinkedIn</Link>
           <Link href="https://github.com/ojedaJD">GitHub</Link>
         </Paper>
 
@@ -111,14 +141,17 @@ const About = () => {
             src={NateAvatar}
             sx={{ width: avatarSize, height: avatarSize }}
           />
-          <h1 className="text-4xl font-bold text-center text-blue-700 mb-6 underline">
+          <h1
+            className="text-4xl font-bold text-center mb-6 underline"
+            style={{ color: "#BB0000" }} // Changed color to #BB0000
+          >
             Nate Aninweze
           </h1>
           <p className="mt-2 text-center italic">
             "You're damned if you do, and you're damned if you don't." - Nate
           </p>
-          <Link href="https://www.linkedin.com/in/nate-aninweze">LinkedIn</Link>
-          <Link href="https://github.com/nateaninweze">GitHub</Link>
+          <Link href="https://www.linkedin.com">LinkedIn</Link>
+          <Link href="https://github.com">GitHub</Link>
         </Paper>
       </div>
     </div>
@@ -126,4 +159,3 @@ const About = () => {
 };
 
 export default About;
-
