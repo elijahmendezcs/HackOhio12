@@ -13,6 +13,9 @@ import {
   Box,
   Button,
   TextField,
+  List,
+  ListItem,
+  Paper
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -38,6 +41,7 @@ const Map = () => {
   const [toLocation, setToLocation] = useState(null);
   const [routeData, setRouteData] = useState(null); // To store route data
   const [path, setPath] = useState([]); // To store polyline path
+  const [instructions, setInstructions] = useState([]); // State to store instructions
 
   const handleZoomIn = () => {
     if (mapRef.current) {
@@ -82,43 +86,31 @@ const Map = () => {
       console.log("Please select both start and end locations.");
       return;
     }
-    setPath([]);
+    setPath([]); // Clear previous path
     const { lat: startLat, lng: startLng } = fromLocation;
     const { lat: endLat, lng: endLng } = toLocation;
 
     try {
       const routeData = await fetchRoute(startLat, startLng, endLat, endLng); // Call the fetchRoute function
-      setRouteData(routeData); // Handle the route data
+      setRouteData(routeData); // Store route data
       console.log("Route Data: ", routeData);
 
       // Construct path array from routeData
-      const newPath = [
-        {
-          lat: routeData[0].startLocation.lat,
-          lng: routeData[0].startLocation.lng,
-        },
-        {
-          lat: routeData[0].endLocation.lat,
-          lng: routeData[0].endLocation.lng,
-        },
-        {
-          lat: routeData[1].startLocation.lat,
-          lng: routeData[1].startLocation.lng,
-        },
-        {
-          lat: routeData[1].endLocation.lat,
-          lng: routeData[1].endLocation.lng,
-        },
-        {
-          lat: routeData[2].startLocation.lat,
-          lng: routeData[2].startLocation.lng,
-        },
-        {
-          lat: routeData[2].endLocation.lat,
-          lng: routeData[2].endLocation.lng,
-        },
-      ];
+      const newPath = routeData.map((route) => ({
+        lat: route.startLocation.lat,
+        lng: route.startLocation.lng,
+      }));
       setPath(newPath); // Update path state with coordinates
+
+      // Extract instructions and other information from the routeData
+      const allInstructions = routeData.map((route) => ({
+        instructions: route.instructions,
+        arrivalStation: route.arrivalStation,
+        departureStation: route.departureStation,
+        routeType: route.routeType,
+      }));
+      setInstructions(allInstructions); // Store instructions in state
+
     } catch (error) {
       console.error("Error fetching route data:", error);
     }
@@ -136,9 +128,7 @@ const Map = () => {
           libraries={libs}
         >
           <Autocomplete
-            onLoad={(autocomplete) =>
-              (fromAutocompleteRef.current = autocomplete)
-            }
+            onLoad={(autocomplete) => (fromAutocompleteRef.current = autocomplete)}
             onPlaceChanged={onFromPlaceChanged}
           >
             <TextField
@@ -150,9 +140,7 @@ const Map = () => {
           </Autocomplete>
 
           <Autocomplete
-            onLoad={(autocomplete) =>
-              (toAutocompleteRef.current = autocomplete)
-            }
+            onLoad={(autocomplete) => (toAutocompleteRef.current = autocomplete)}
             onPlaceChanged={onToPlaceChanged}
           >
             <TextField
@@ -169,7 +157,6 @@ const Map = () => {
             zoom={15}
             onLoad={(map) => {
               mapRef.current = map;
-              // Center the map at OSU when it's loaded
             }}
           >
             <Marker position={fromLocation} />
@@ -234,6 +221,56 @@ const Map = () => {
             Get Route
           </Button>
         </Box>
+
+        <Box sx={{ marginTop: "24px" }}>
+  <Typography variant="h6" gutterBottom>
+    Route Information:
+  </Typography>
+  {instructions.length > 0 ? (
+    <List sx={{ paddingLeft: "16px" }}>
+      {instructions.map((item, index) => (
+        <ListItem
+          key={index}
+          disableGutters
+          sx={{
+            marginBottom: "12px",
+            padding: "16px",
+            backgroundColor: "#f5f5f5",
+            borderRadius: "8px",
+            boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <Box>
+            {/* Safely check if instructions exist and are an array */}
+            <Typography variant="body1" sx={{ fontWeight: 500, marginBottom: "8px" }}>
+              {Array.isArray(item.instructions)
+                ? item.instructions.join(", ")
+                : ""}
+            </Typography>
+            {/* Display additional information if available */}
+            {item.routeType && (
+              <Typography variant="body2" sx={{ color: "#666" }}>
+                <strong>Route Type:</strong> {item.routeType}
+              </Typography>
+            )}
+            {item.departureStation && (
+              <Typography variant="body2" sx={{ color: "#666" }}>
+                <strong>Departure Station:</strong> {item.departureStation}
+              </Typography>
+            )}
+            {item.arrivalStation && (
+              <Typography variant="body2" sx={{ color: "#666" }}>
+                <strong>Arrival Station:</strong> {item.arrivalStation}
+              </Typography>
+            )}
+          </Box>
+        </ListItem>
+      ))}
+    </List>
+  ) : (
+    <Typography>No route data available yet.</Typography>
+  )}
+</Box>
       </CardContent>
     </Card>
   );

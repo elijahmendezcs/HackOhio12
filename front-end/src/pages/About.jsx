@@ -78,13 +78,14 @@ const About = () => {
             sx={{ width: avatarSize, height: avatarSize }}
           />
           <h1
-            className="text-4xl font-bold text-center mb-6 underline"
+            className="text-2xl font-bold text-center mb-6 underline"
             style={{ color: "#BB0000" }} // Changed color to #BB0000
           >
             Elijah Mendez
           </h1>
           <p className="mt-2 text-center italic">
-            "Demonstrate Greatness." - Elijah
+            "Everyone in life has one chance, make sure you take that risk." -
+            Elijah
           </p>
           <Link href="https://www.linkedin.com/in/elijahmendezcs/">
             LinkedIn
@@ -100,8 +101,9 @@ const About = () => {
             sx={{ width: avatarSize, height: avatarSize }}
           />
           <h1
-            className="text-4xl font-bold text-center mb-6 underline"
-            style={{ color: "#BB0000" }} // Changed color to #BB0000
+            className="text-2xl font-bold text-center mb-6 underline"
+            style={{ color: "#BB0000" }}
+            // Changed color to #BB0000
           >
             Mohamed Chakrowf
           </h1>
@@ -122,7 +124,7 @@ const About = () => {
             sx={{ width: avatarSize, height: avatarSize }}
           />
           <h1
-            className="text-4xl font-bold text-center mb-6 underline"
+            className="text-2xl font-bold text-center mb-6 underline"
             style={{ color: "#BB0000" }} // Changed color to #BB0000
           >
             JD Ojeda
@@ -142,7 +144,7 @@ const About = () => {
             sx={{ width: avatarSize, height: avatarSize }}
           />
           <h1
-            className="text-4xl font-bold text-center mb-6 underline"
+            className="text-2xl font-bold text-center mb-6 underline"
             style={{ color: "#BB0000" }} // Changed color to #BB0000
           >
             Nate Aninweze
