@@ -199,6 +199,7 @@ public class TransitService {
             for (DirectionsStep step : leg.steps) {
                 if (step.distance != null) {
                     // Accumulate the distance value (converted to kilometers)
+
                     totalDistance += (double) step.distance.inMeters;
                 }
             }
@@ -213,7 +214,8 @@ public class TransitService {
         WalkingRoute route = new WalkingRoute(startLocation,endLocation, totalDistance);
         for (DirectionsLeg leg : directions.routes[0].legs) {
             for (DirectionsStep step : leg.steps) {
-                String s = step.htmlInstructions + " - for: " + step.distance.humanReadable;
+                String instructions = step.htmlInstructions.replaceAll("<[^>]*>", "");
+                String s = instructions + "  for: " + step.distance.humanReadable;
                 route.getInstructions().add(s);
             }
         }

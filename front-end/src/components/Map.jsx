@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { fetchRoute } from "../service/RouteService";
 
 const mapContainerStyle = {
   width: "100%",
@@ -26,12 +27,15 @@ const center = {
   lng: -83.0309,
 };
 
+const libs = ["places"];
+
 const Map = () => {
   const mapRef = useRef(null);
   const fromAutocompleteRef = useRef(null);
   const toAutocompleteRef = useRef(null);
   const [fromLocation, setFromLocation] = useState(center);
   const [toLocation, setToLocation] = useState(null);
+  const [routeData, setRouteData] = useState(null); // To store route data
 
   const handleZoomIn = () => {
     if (mapRef.current) {
@@ -50,16 +54,11 @@ const Map = () => {
   const onFromPlaceChanged = () => {
     if (fromAutocompleteRef.current) {
       const place = fromAutocompleteRef.current.getPlace();
-
       if (place && place.geometry && place.geometry.location) {
         const location = place.geometry.location;
         const lat = location.lat();
         const lng = location.lng();
-
-        // Log the coordinates to the console
-        console.log(`From Location - Latitude: ${lat}, Longitude: ${lng}`);
-      } else {
-        console.log("No geometry data available for the selected place");
+        setFromLocation({ lat, lng });
       }
     }
   };
@@ -67,17 +66,30 @@ const Map = () => {
   const onToPlaceChanged = () => {
     if (toAutocompleteRef.current) {
       const place = toAutocompleteRef.current.getPlace();
-
       if (place && place.geometry && place.geometry.location) {
         const location = place.geometry.location;
         const lat = location.lat();
         const lng = location.lng();
-
-        // Log the coordinates to the console
-        console.log(`To Location - Latitude: ${lat}, Longitude: ${lng}`);
-      } else {
-        console.log("No geometry data available for the selected place");
+        setToLocation({ lat, lng });
       }
+    }
+  };
+
+  const handleRouteRequest = async () => {
+    if (!fromLocation || !toLocation) {
+      console.log("Please select both start and end locations.");
+      return;
+    }
+
+    const { lat: startLat, lng: startLng } = fromLocation;
+    const { lat: endLat, lng: endLng } = toLocation;
+
+    try {
+      const routeData = await fetchRoute(startLat, startLng, endLat, endLng); // Call the fetchRoute function
+      setRouteData(routeData); // Handle the route data
+      console.log("Route Data: ", routeData);
+    } catch (error) {
+      console.error("Error fetching route data:", error);
     }
   };
 
@@ -90,9 +102,8 @@ const Map = () => {
 
         <LoadScript
           googleMapsApiKey={"AIzaSyChx_cD-7aqW-xvFenmjRVPbYpALrzBRyU"}
-          libraries={["places"]} // Ensure you load the 'places' library
+          libraries={libs}
         >
-          {/* From Location Autocomplete Input */}
           <Autocomplete
             onLoad={(autocomplete) =>
               (fromAutocompleteRef.current = autocomplete)
@@ -107,7 +118,6 @@ const Map = () => {
             />
           </Autocomplete>
 
-          {/* To Location Autocomplete Input */}
           <Autocomplete
             onLoad={(autocomplete) =>
               (toAutocompleteRef.current = autocomplete)
@@ -122,7 +132,6 @@ const Map = () => {
             />
           </Autocomplete>
 
-          {/* Google Map */}
           <GoogleMap
             mapContainerStyle={mapContainerStyle}
             center={center}
@@ -134,7 +143,6 @@ const Map = () => {
           </GoogleMap>
         </LoadScript>
 
-        {/* Zoom Buttons */}
         <Box
           sx={{ display: "flex", justifyContent: "center", marginTop: "16px" }}
         >
@@ -147,6 +155,19 @@ const Map = () => {
           </Button>
           <Button variant="outlined" onClick={handleZoomOut}>
             <RemoveIcon /> Zoom Out
+          </Button>
+        </Box>
+
+        {/* Route Button */}
+        <Box
+          sx={{ display: "flex", justifyContent: "center", marginTop: "16px" }}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleRouteRequest}
+          >
+            Get Route
           </Button>
         </Box>
       </CardContent>
