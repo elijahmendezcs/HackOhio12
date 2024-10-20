@@ -124,7 +124,7 @@ const Map = () => {
         </Typography>
 
         <LoadScript
-          googleMapsApiKey={"AIzaSyChx_cD-7aqW-xvFenmjRVPbYpALrzBRyU"}
+          googleMapsApiKey={""}
           libraries={libs}
         >
           <Autocomplete

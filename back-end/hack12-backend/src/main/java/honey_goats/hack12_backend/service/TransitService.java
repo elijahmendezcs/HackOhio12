@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 public class TransitService {
-    String ROUTE_API_KEY = "AIzaSyChx_cD-7aqW-xvFenmjRVPbYpALrzBRyU";
+    String ROUTE_API_KEY = "";
     private final GeoApiContext context;
 
     // Initialize the Google Maps API context with the provided API key
