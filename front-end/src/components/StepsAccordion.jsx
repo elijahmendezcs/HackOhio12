@@ -1,6 +1,5 @@
 import * as React from "react";
 import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -14,14 +13,20 @@ export default function AccordionUsage() {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          Step 1
+          How it works! (Click Me)
         </AccordionSummary>
         <AccordionDetails>
-          First, put your location in or click the Locate Me Button
+          First, put your location in or click the Locate Me Button.
+        </AccordionDetails>
+        <AccordionDetails>
+          Put in your desired final destination.
+        </AccordionDetails>
+        <AccordionDetails>
+          Click submit and find your ideal route!
         </AccordionDetails>
       </Accordion>
 
-      <Accordion>
+      {/* <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -52,7 +57,7 @@ export default function AccordionUsage() {
             id="panel3-header"
           />
         </AccordionActions>
-      </Accordion>
+      </Accordion> */}
     </div>
   );
 }
