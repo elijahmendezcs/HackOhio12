@@ -8,7 +8,6 @@ import MoAvatar from "../Avatars/Meeeeeee.jpeg";
 import Link from "@mui/material/Link";
 
 const About = () => {
-  // Set the size of the avatars
   const avatarSize = 150;
   const paperSize = {
     width: "300px",
