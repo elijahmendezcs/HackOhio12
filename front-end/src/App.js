@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Button from "./components/Button"; // Ensure this component is correctly set up
 import Home from "./pages/Home";
@@ -11,7 +16,7 @@ function App() {
     <Router>
       <div className="App h-screen bg-gray-100">
         {/* Navbar Component */}
-        <Navbar className="w-full fixed top-0 left-0 z-10 bg-gray-700" /> 
+        <Navbar className="w-full fixed top-0 left-0 z-10 bg-gray-700" />
 
         {/* Main Content Section */}
         <div className="pt-16">
@@ -21,12 +26,18 @@ function App() {
               path="/"
               element={
                 <div className="flex flex-col items-center justify-center space-y-8 mt-4">
-                  <img src={busImage} alt="Bus Image" className="mx-auto max-w-3xl h-auto" />
+                  <img
+                    src={busImage}
+                    alt="Bus Image"
+                    className="mx-auto max-w-3xl h-auto"
+                  />
                   <h1 className="text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-gray-500 animate-text">
-  Where2Go?
-</h1>
+                    Where2Go?
+                  </h1>
 
-                  <Button className="bg-scarlet-500 text-white hover:bg-gray-600">Get Started</Button>
+                  <Button className="bg-scarlet-500 text-white hover:bg-gray-600">
+                    Get Started
+                  </Button>
                 </div>
               }
             />

@@ -37,21 +37,45 @@ const CustomBarChart = () => {
       <Typography variant="h6" align="center" gutterBottom>
         Carbon Emissions Overview
       </Typography>
+
       <ResponsiveContainer width="100%" height={300}>
         <BarChart
           data={data}
           margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-          <XAxis dataKey="name" tick={{ fill: "#666" }} />
-          <YAxis tick={{ fill: "#666" }} />
+          {/* Customizing Cartesian Grid */}
+          <CartesianGrid strokeDasharray="3 3" stroke="#D3D3D3" />
+
+          {/* Customizing X and Y Axis */}
+          <XAxis dataKey="name" tick={{ fill: "#333" }} stroke="#333" />
+          <YAxis tick={{ fill: "#333" }} stroke="#333" />
+
+          {/* Tooltip customization */}
           <Tooltip
-            wrapperStyle={{ backgroundColor: "#fff", border: "1px solid #ccc" }}
+            wrapperStyle={{
+              backgroundColor: "#fff",
+              border: "1px solid #ccc",
+              color: "#333",
+            }}
+            contentStyle={{
+              backgroundColor: "#f0f0f0",
+            }}
+            itemStyle={{ color: "#000" }}
+            labelStyle={{ color: "#555" }}
           />
-          <Legend wrapperStyle={{ top: -10 }} />
+
+          {/* Customizing Legend */}
+          <Legend 
+        wrapperStyle={{ top: -10 }} 
+        iconType="circle" 
+        align="center"  // Center the legend
+        layout="horizontal" // Horizontal layout
+      />
+
+          {/* Customizing the Bar fill color */}
           <Bar
             dataKey="Kilotons"
-            fill="#3f51b5"
+            fill="#BB0000" // Scarlet for bar color
             barSize={30}
             radius={[5, 5, 0, 0]}
           />
