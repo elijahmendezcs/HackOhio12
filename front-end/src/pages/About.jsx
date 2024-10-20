@@ -34,7 +34,7 @@ const About = () => {
           Programming Languages: JavaScript, Java, HTML, CSS
         </p>
         <p className="text-lg text-gray-800 leading-relaxed">
-          Technologies: React.js, Node.js, SpringBoot, PostgreSQL, Axiom, Git,
+          Technologies: React.js, Node.js, SpringBoot, PostgreSQL, Axios, Git,
           Web Scraping Techniques, Postman, Charles
         </p>
         <p className="text-lg text-gray-800 leading-relaxed">
