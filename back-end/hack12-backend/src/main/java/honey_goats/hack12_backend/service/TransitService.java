@@ -141,6 +141,25 @@ public class TransitService {
                 .await();
     }
 
+    public List<OSUBusStop> getInBetweenStops(OSUBus bus, OSUBusStop startStop, OSUBusStop endStop) {
+        List<OSUBusStop> inBetweenStops = new ArrayList<>();
+        boolean collecting = false;
+
+        for (OSUBusStop stop : bus.getStops()) {
+            if (stop.equals(startStop)) {
+                collecting = true; // Start collecting after the start stop is found
+            }
+            if (collecting) {
+                inBetweenStops.add(stop);
+            }
+            if (stop.equals(endStop)) {
+                break; // Stop collecting once the end stop is reached
+            }
+        }
+
+        return inBetweenStops;
+    }
+
     public List<Route> getRoutes(LatLng start, LatLng end) throws Exception {
         List<Route> routes = new ArrayList<>();
         OSUBusService osuBusService = new OSUBusService();
@@ -155,6 +174,8 @@ public class TransitService {
         findClosestOSUBusStopOnBusRoute(end, routeResult);
 
         directions = getWalkingDirections(routeResult.getStopLocation().getLatLng(),end);
+        List<OSUBusStop> inBetweenStops = getInBetweenStops(routeResult.getBus(), routeResult.getStartLocation(), routeResult.getStopLocation());
+
         double distanceBetweenBusStops = getDistanceBetweenBusStops(routeResult.getStartLocation().getLatLng(), routeResult.getStopLocation().getLatLng());
         BusRoute busRoute = new BusRoute(routeResult.getStartLocation().getLatLng(), routeResult.getStopLocation().getLatLng(),distanceBetweenBusStops,routeResult.getStartLocation().getName(), routeResult.getStopLocation().getName());
 
@@ -199,12 +220,12 @@ public class TransitService {
             for (DirectionsStep step : leg.steps) {
                 if (step.distance != null) {
                     // Accumulate the distance value (converted to kilometers)
-
+                    System.out.println(step.distance.inMeters);
                     totalDistance += (double) step.distance.inMeters;
                 }
             }
         }
-
+        System.out.println(totalDistance);
         return totalDistance; // Total distance in miles
     }
 
@@ -214,12 +235,21 @@ public class TransitService {
         WalkingRoute route = new WalkingRoute(startLocation,endLocation, totalDistance);
         for (DirectionsLeg leg : directions.routes[0].legs) {
             for (DirectionsStep step : leg.steps) {
-                String instructions = step.htmlInstructions.replaceAll("<[^>]*>", "");
-                String s = instructions + "  for: " + step.distance.humanReadable;
-                route.getInstructions().add(s);
+
+                String instructions = removeHtmlTags(step.htmlInstructions);
+                String formattedInstructions = String.format("%s for %s", instructions, step.distance.humanReadable);
+
+                route.getInstructions().add(formattedInstructions);
             }
         }
         return route;
+    }
+    private String removeHtmlTags(String html) {
+        // Remove all HTML tags
+        String textWithoutTags = html.replaceAll("<[^>]*>", " ");
+        // Replace multiple spaces with a single space
+        return textWithoutTags.replaceAll("\\s+", " ").trim();
+
     }
 
     public static void main(String[] args) throws Exception {

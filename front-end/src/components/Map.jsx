@@ -4,6 +4,7 @@ import {
   LoadScript,
   Marker,
   Autocomplete,
+  Polyline,
 } from "@react-google-maps/api";
 import {
   Card,
@@ -36,6 +37,7 @@ const Map = () => {
   const [fromLocation, setFromLocation] = useState(center);
   const [toLocation, setToLocation] = useState(null);
   const [routeData, setRouteData] = useState(null); // To store route data
+  const [path, setPath] = useState([]); // To store polyline path
 
   const handleZoomIn = () => {
     if (mapRef.current) {
@@ -80,7 +82,7 @@ const Map = () => {
       console.log("Please select both start and end locations.");
       return;
     }
-
+    setPath([]);
     const { lat: startLat, lng: startLng } = fromLocation;
     const { lat: endLat, lng: endLng } = toLocation;
 
@@ -88,6 +90,35 @@ const Map = () => {
       const routeData = await fetchRoute(startLat, startLng, endLat, endLng); // Call the fetchRoute function
       setRouteData(routeData); // Handle the route data
       console.log("Route Data: ", routeData);
+
+      // Construct path array from routeData
+      const newPath = [
+        {
+          lat: routeData[0].startLocation.lat,
+          lng: routeData[0].startLocation.lng,
+        },
+        {
+          lat: routeData[0].endLocation.lat,
+          lng: routeData[0].endLocation.lng,
+        },
+        {
+          lat: routeData[1].startLocation.lat,
+          lng: routeData[1].startLocation.lng,
+        },
+        {
+          lat: routeData[1].endLocation.lat,
+          lng: routeData[1].endLocation.lng,
+        },
+        {
+          lat: routeData[2].startLocation.lat,
+          lng: routeData[2].startLocation.lng,
+        },
+        {
+          lat: routeData[2].endLocation.lat,
+          lng: routeData[2].endLocation.lng,
+        },
+      ];
+      setPath(newPath); // Update path state with coordinates
     } catch (error) {
       console.error("Error fetching route data:", error);
     }
@@ -136,10 +167,17 @@ const Map = () => {
             mapContainerStyle={mapContainerStyle}
             center={center}
             zoom={15}
-            onLoad={(map) => (mapRef.current = map)}
+            onLoad={(map) => {
+              mapRef.current = map;
+              // Center the map at OSU when it's loaded
+            }}
           >
             <Marker position={fromLocation} />
             {toLocation && <Marker position={toLocation} />}
+            {/* Display Polyline */}
+            {path.length > 0 && (
+              <Polyline path={path} options={{ strokeColor: "#FF0000" }} />
+            )}
           </GoogleMap>
         </LoadScript>
 
