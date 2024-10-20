@@ -203,10 +203,10 @@ const Map = () => {
           <Button
             variant="contained"
             sx={{
-              backgroundColor: "#FF2400", // Scarlet color
-              color: "gray",
-              "&:hover": {
-                backgroundColor: "#b80000", // Darker scarlet on hover
+              backgroundColor: '#BB0000', // Scarlet color
+              color: '#fff', // White text
+              '&:hover': {
+                backgroundColor: '#4A4A4A', // Gray color for hover
               },
             }}
             onClick={handleRouteRequest}
