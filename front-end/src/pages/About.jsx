@@ -1,9 +1,9 @@
 import { Avatar } from "@mui/material";
 import React from "react";
 // Import images directly from the src folder
-import ElijahAvatar from '../Avatars/My-Boy-Elijah.jpeg';
-import JDAvatar from '../Avatars/My-Boy-JD.jpeg';
-import NateAvatar from '../Avatars/IMG_0949.JPG';
+import ElijahAvatar from "../Avatars/My-Boy-Elijah.jpeg";
+import JDAvatar from "../Avatars/My-Boy-JD.jpeg";
+import NateAvatar from "../Avatars/IMG_0949.JPG";
 
 const About = () => {
   return (
